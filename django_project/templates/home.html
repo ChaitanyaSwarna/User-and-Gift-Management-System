@@ -1,0 +1,91 @@
+{% load static %}
+        <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Django</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Bootstrap background color */
+  }
+
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: left;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    background-color: #28a745; /* Bootstrap success color */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #218838; /* Darker shade for hover effect */
+  }
+
+  h4 {
+    color: #28a745; /* Bootstrap success color */
+    margin-top: 20px;
+  }
+
+  a.btn {
+    margin-top: 20px;
+    text-decoration: none;
+  }
+
+  /* Additional styling for the navigation links */
+  a.btn-success {
+    margin: 10px;
+  }
+
+  /* Optional: Adding some spacing between the buttons */
+  .btn-success {
+    margin-right: 10px;
+  }
+</style>
+<body style="text-align:center";>
+  <h2><b>Login Page</b></h2>
+  <form method="post" action="/">{% csrf_token %}
+    <h4>{{s}}</h4>
+    <label for="name">Username:</label>
+   <input type="text" name="name" value="{{n}}"placeholder="Enter Username" required/><br/>
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="{{p}}" placeholder="Password" required/><br/>
+    
+  <input type="submit" class="btn btn-success"  value="Login"></form>
+
+  
+   <a href="/registration" class="btn btn-success" > Register </a>
+</body>
+</html>
+
+ <a href="/user?value={{name}}" class="btn btn-success" > USERS LIST </a>
+<a href="/gift?value={{id}}" class="btn btn-success" >GIFTS </a>
+
+

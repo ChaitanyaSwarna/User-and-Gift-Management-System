@@ -1,0 +1,82 @@
+{% load static %}
+        <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Django</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+  }
+
+  th {
+    background-color: #f8f9fa; 
+  }
+
+  tr.even {
+    background-color: #f8f9fa; 
+  }
+
+  tr.odd {
+    background-color: #e9ecef; 
+  }
+  .custom-add-button {
+    background: linear-gradient(to right, #3498db, #2980b9); 
+    color: #fff; 
+  }
+
+  .custom-add-button:hover {
+    background: linear-gradient(to right, #2980b9, #1f6695); 
+</style>
+<body style="text-align:center";>
+<blockquote class="blockquote">
+  <h2> Your Gift List</h2>
+</blockquote>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Gift Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in gift %}
+        {% csrf_token %}
+        {% if i.id_1 == key %}
+          <tr class="{% cycle 'even' 'odd' %}">
+            <td>{{i.giftname}}</td>
+          </tr>
+        
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+
+ 
+
+  <form method="post" action="/gift/?value={{ key }}" class="form-inline">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="gift">GIFT:</label>
+      <input type="text" class="form-control" name="gift">
+    </div>
+    <input type="submit" class="btn btn-success custom-add-button" value="ADD">
+  </form>  
+<br> <a href="/" class="btn btn-success" > BACK </a>
+  <a href="/logout" class="btn btn-success" >LOGOUT </a>
+
+</body>
+</html>

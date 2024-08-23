@@ -1,0 +1,31 @@
+{% load static %}
+        <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Django</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<figure class="text-center">
+  <blockquote class="blockquote">
+    <p> USER GIFT's</p>
+  </blockquote>
+</figure>
+<ul class="list-group">
+
+{%for i in gift %}
+  {% if i.id_1 == name %}
+  <li class="list-group-item">{{i.giftname}}</li>   
+  
+  {% endif %}
+ {% endfor %}
+
+</ul>   
+  <a href="/logout" class="btn btn-success" >LOGOUT </a>
+</body>
+</html>

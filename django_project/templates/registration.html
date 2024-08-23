@@ -1,0 +1,58 @@
+{% load static %}
+        <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+  input[type="email"],
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: left;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    background-color: #28a745; /* Bootstrap success color */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #218838; /* Darker shade for hover effect */
+  }
+</style>
+<body style="text-align:center";>
+<h1><b>Registration Page</b></h1>
+  <form method="post" action="{% url 'registration'%}" > 
+    {% csrf_token %}
+  Email:<input type="email" name="mail" placeholder="Enter your Email" required>
+  Name: <input type="text" value="{{name}}" name="name" placeholder="Enter your Username"required><br/>
+  Password: <input type="password" value="{{password}}" name="password" placeholder="Enter your Password"required/><br/>
+
+  <input type="submit" class="btn btn-success"></form>
+ <br> {{s}} </br>
+  <a href="/" class="btn btn-success" > BACK </a>
+</body>
+</html>
